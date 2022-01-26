@@ -1,14 +1,11 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
-
 public class animatedSpriteScript : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer { get; private set; }
-    public Sprite[] spritesArray;
+    private SpriteRenderer spriteRenderer; 
+    [SerializeField] int spritesArrayIndex;
+    [SerializeField] Sprite[] spritesArray;
     private float spriteChangeTime = .15f;
-    public int spritesArrayIndex { get; private set; }
-    public bool isSpriteDynamic = true;
 
     private void Awake()
     {
@@ -23,12 +20,8 @@ public class animatedSpriteScript : MonoBehaviour
     private void ChangeSprite()
     {
         spritesArrayIndex++;
-
-        if(spritesArrayIndex >= spritesArray.Length && isSpriteDynamic)
-        {
-            spritesArrayIndex = 0;
-        }
-
+        var wentThroughAllArray = spritesArrayIndex >= spritesArray.Length;
+        if(wentThroughAllArray) spritesArrayIndex = 0;
         spriteRenderer.sprite = spritesArray[spritesArrayIndex];
     }
 }
