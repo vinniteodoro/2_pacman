@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class playerScript : MonoBehaviour
 {
-    public movementScript movementScript { get; private set; }
+    private movementScript movementScript;
 
     private void Awake()
     {

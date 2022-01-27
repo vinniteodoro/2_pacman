@@ -3,7 +3,7 @@ using UnityEngine;
 public class animatedSpriteScript : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer; 
-    [SerializeField] int spritesArrayIndex;
+    private int spritesArrayIndex;
     [SerializeField] Sprite[] spritesArray;
     private float spriteChangeTime = .15f;
 
