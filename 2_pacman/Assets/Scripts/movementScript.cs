@@ -5,6 +5,7 @@ public class movementScript : MonoBehaviour
     private Rigidbody2D objectRigidBody;
     private float objectSpeed = 8f;
     private Vector2 objectDirection;
+    private float mapWidth = 14.5f;
 
     private void Awake()
     {
@@ -14,7 +15,14 @@ public class movementScript : MonoBehaviour
     private void FixedUpdate()
     {
         MoveObject();
+        VerifyMapBoundaries();
     }   
+
+    private void VerifyMapBoundaries()
+    {
+        if(objectRigidBody.position.x >= mapWidth) objectRigidBody.MovePosition(new Vector2(-mapWidth + .1f, objectRigidBody.position.y));
+        if(objectRigidBody.position.x <= -mapWidth) objectRigidBody.MovePosition(new Vector2(mapWidth - .1f, objectRigidBody.position.y));
+    }
 
     private void MoveObject()
     {
