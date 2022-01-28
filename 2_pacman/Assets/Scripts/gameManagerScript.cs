@@ -17,7 +17,7 @@ public class gameManagerScript : MonoBehaviour
 
    private void Update()
    {
-      CheckWinConditions();
+      //CheckWinConditions();
    }
 
    public void PlayGame()
