@@ -5,7 +5,7 @@ public class coinScript : MonoBehaviour
 {
     private Tilemap coinTilemap;
     [SerializeField] Sprite coinSprite;
-    public int coinAmount;
+    public static int coinAmount = 15;
     private gameManagerScript gameManagerScript;
 
     private void Awake()
@@ -16,7 +16,6 @@ public class coinScript : MonoBehaviour
 
     private void Start()
     {
-        coinAmount++;
         //CheckStartingGameCoinAmount();
     }
 /*
@@ -32,8 +31,4 @@ public class coinScript : MonoBehaviour
         }
     }
 */
-    public void PlayerHitCoin()
-    {
-        coinAmount--;
-    }
 }

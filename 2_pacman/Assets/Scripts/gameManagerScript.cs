@@ -8,16 +8,11 @@ public class gameManagerScript : MonoBehaviour
    [SerializeField] GameObject playerObject;
    [SerializeField] GameObject mainMenuObject;
    [SerializeField] GameObject winMenuObject;
-   private coinScript coinScript;
-
-   private void Awake()
-   {
-      coinScript = GetComponent<coinScript>();
-   }
+   [SerializeField] coinScript coinScript;
 
    private void Update()
    {
-      //CheckWinConditions();
+      CheckWinConditions();
    }
 
    public void PlayGame()
@@ -36,7 +31,14 @@ public class gameManagerScript : MonoBehaviour
          coinsObject.SetActive(false);
          wallsObject.SetActive(false);
          winMenuObject.SetActive(true);
+
+         DoNotTriggerWinConditionsAgain();
       }
+   }
+
+   public void DoNotTriggerWinConditionsAgain()
+   {
+      coinScript.coinAmount = 15;
    }
 
    public void PlayAgain()

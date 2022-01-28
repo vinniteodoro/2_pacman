@@ -4197,6 +4197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 968805268}
+  coinTilemap: {fileID: 798648412}
 --- !u!1 &859043726
 GameObject:
   m_ObjectHideFlags: 0
@@ -10584,6 +10585,7 @@ MonoBehaviour:
   playerObject: {fileID: 254208409}
   mainMenuObject: {fileID: 1795205707}
   winMenuObject: {fileID: 783895104}
+  coinScript: {fileID: 798648414}
 --- !u!4 &2016064445
 Transform:
   m_ObjectHideFlags: 0
