@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Map
   - Coin
+  - Ghost
   layers:
   - Default
   - TransparentFX
