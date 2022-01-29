@@ -3,32 +3,28 @@ using UnityEngine.Tilemaps;
 
 public class coinScript : MonoBehaviour
 {
-    private Tilemap coinTilemap;
+    [SerializeField] Tilemap coinTilemap;
     [SerializeField] Sprite coinSprite;
-    public static int coinAmount = 15;
+    public static int coinAmount = 1;
     private gameManagerScript gameManagerScript;
 
     private void Awake()
     {
         coinTilemap = this.gameObject.GetComponent<Tilemap>();
         gameManagerScript = GetComponent<gameManagerScript>();
+        CheckStartingGameCoinAmount();
     }
 
-    private void Start()
-    {
-        //CheckStartingGameCoinAmount();
-    }
-/*
     private void CheckStartingGameCoinAmount()
     {
-        BoundsInt tilemapBounds = coinTilemap.cellBounds;
+        var tilemapBounds = coinTilemap.cellBounds;
         
         foreach(Vector3Int tilemapPosition in tilemapBounds.allPositionsWithin)
         {
-            Tile tileToCheck = coinTilemap.GetTile<Tile>(tilemapPosition);
-            Debug.Log(tileToCheck.sprite.name);
-            //if(tileToCheck.sprite == coinSprite) coinAmount++;
+            if(coinTilemap.HasTile(tilemapPosition)) coinAmount++;
         }
+
+        //Compensate for the starting value of 1 (bypass of CheckWinConditions())
+        coinAmount--;
     }
-*/
 }

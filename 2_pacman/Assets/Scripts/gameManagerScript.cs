@@ -38,7 +38,7 @@ public class gameManagerScript : MonoBehaviour
 
    public void DoNotTriggerWinConditionsAgain()
    {
-      coinScript.coinAmount = 15;
+      coinScript.coinAmount = 1;
    }
 
    public void PlayAgain()
