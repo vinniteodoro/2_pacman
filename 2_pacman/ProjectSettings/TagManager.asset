@@ -7,6 +7,7 @@ TagManager:
   - Map
   - Coin
   - Ghost
+  - Intersection
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Ghosts
   - Coins
   - Obstacles
-  - 
+  - Intersections
   - 
   - 
   - 
