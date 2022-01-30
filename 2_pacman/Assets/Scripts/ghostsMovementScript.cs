@@ -6,15 +6,10 @@ public class ghostsMovementScript : MonoBehaviour
     private Rigidbody2D objectRigidBody;
     private float objectSpeed = 7f;
     private Vector2 objectDirection;
-    private List<Vector2> directionChoices = new List<Vector2>();
 
     private void Awake()
     {
         objectRigidBody = GetComponent<Rigidbody2D>();
-        directionChoices.Add(Vector2.left);
-        directionChoices.Add(Vector2.right);
-        directionChoices.Add(Vector2.up);
-        directionChoices.Add(Vector2.down);
     }
 
     private void Start()
@@ -26,36 +21,23 @@ public class ghostsMovementScript : MonoBehaviour
     {
         MoveObject();
         VerifyMapBoundaries();
-        //RandomizeGhostsDirectionIfStopped();
     }
 
     private void RandomizeStartingGhostsDirection()
     {
+        var initialDirectionPossibilities = new List<Vector2>();
+        initialDirectionPossibilities.Add(Vector2.left);
+        initialDirectionPossibilities.Add(Vector2.right);
         var randomDirection = Random.Range(0, 2);
-        SetObjectDirection(directionChoices[randomDirection]);
-    }
-
-    private void RandomizeGhostsDirectionIfStopped()
-    {   /*
-        if(ghosts are stopped)
-        {
-            var randomDirection = Random.Range(0, 4);
-            SetObjectDirection(directionChoices[randomDirection]);
-        }*/
+        SetObjectDirection(initialDirectionPossibilities[randomDirection]);
     }
 
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
         if(otherCollider.gameObject.tag == "Intersection")
         {
-            RandomizeGhostsDirection();
+            
         }
-    }
-
-    private void RandomizeGhostsDirection()
-    {
-        var randomDirection = Random.Range(0, 4);
-        SetObjectDirection(directionChoices[randomDirection]);
     }
 
     private void VerifyMapBoundaries()
