@@ -109,7 +109,7 @@ public class ghostsMovementScript : MonoBehaviour
 
     private void RandomizeWhichPathToGoFromPossibleOptions()
     {
-        nextChosenDirection = ghostNextPossibleDirections[Random.Range(0, ghostNextPossibleDirections.Count - 1)];
+        nextChosenDirection = ghostNextPossibleDirections[Random.Range(0, ghostNextPossibleDirections.Count)];
     }
 
     private void ChangeDirectionWhenAvailable()
