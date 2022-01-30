@@ -596,6 +596,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b912f0c730a5c694a9920ed6a3fd1148, type: 3}
   - {fileID: 21300000, guid: d25ec4c704956cf4bbfa0c054e52351c, type: 3}
   - {fileID: 21300000, guid: 345e1461c58b9ef4bbc269dc314903c1, type: 3}
+  spriteChangeTime: 0.15
 --- !u!114 &254208415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +635,7 @@ GameObject:
   - component: {fileID: 350831989}
   - component: {fileID: 350831988}
   - component: {fileID: 350831992}
+  - component: {fileID: 350831993}
   m_Layer: 7
   m_Name: BlueGhost
   m_TagString: Ghost
@@ -686,7 +688,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.95}
+  m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
 --- !u!212 &350831990
 SpriteRenderer:
@@ -769,6 +771,22 @@ MonoBehaviour:
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &350831993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350831987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8c6e75037e3d044945dbc5fd3b7ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritesArray:
+  - {fileID: 21300000, guid: 518fbb4f830817e4facb1ed18be38849, type: 3}
+  - {fileID: 21300000, guid: acb060d4e6d4c6a4cb1ad4476512d5d5, type: 3}
+  spriteChangeTime: 0.09
 --- !u!1 &492721599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2060,7 @@ GameObject:
   - component: {fileID: 598210677}
   - component: {fileID: 598210676}
   - component: {fileID: 598210680}
+  - component: {fileID: 598210681}
   m_Layer: 7
   m_Name: OrangeGhost
   m_TagString: Ghost
@@ -2094,7 +2113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.95}
+  m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
 --- !u!212 &598210678
 SpriteRenderer:
@@ -2177,6 +2196,22 @@ MonoBehaviour:
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &598210681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598210675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8c6e75037e3d044945dbc5fd3b7ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritesArray:
+  - {fileID: 21300000, guid: f6b6af01b1c0f6c4ea7ae55276ebb69f, type: 3}
+  - {fileID: 21300000, guid: abaa1585425c6d047b3011fde6cdddaa, type: 3}
+  spriteChangeTime: 0.09
 --- !u!1 &616829124
 GameObject:
   m_ObjectHideFlags: 0
@@ -5449,6 +5484,7 @@ GameObject:
   - component: {fileID: 813941751}
   - component: {fileID: 813941750}
   - component: {fileID: 813941754}
+  - component: {fileID: 813941755}
   m_Layer: 7
   m_Name: RedGhost
   m_TagString: Ghost
@@ -5501,7 +5537,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.95}
+  m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
 --- !u!212 &813941752
 SpriteRenderer:
@@ -5584,6 +5620,22 @@ MonoBehaviour:
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &813941755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813941749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8c6e75037e3d044945dbc5fd3b7ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritesArray:
+  - {fileID: 21300000, guid: b59d74c51ac2ad544b3072374a5c48ab, type: 3}
+  - {fileID: 21300000, guid: e32427434a4c8d44ea5d1593757d542c, type: 3}
+  spriteChangeTime: 0.09
 --- !u!1 &859043726
 GameObject:
   m_ObjectHideFlags: 0
@@ -12281,6 +12333,7 @@ GameObject:
   - component: {fileID: 1314128425}
   - component: {fileID: 1314128424}
   - component: {fileID: 1314128428}
+  - component: {fileID: 1314128429}
   m_Layer: 7
   m_Name: PinkGhost
   m_TagString: Ghost
@@ -12333,7 +12386,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.95}
+  m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
 --- !u!212 &1314128426
 SpriteRenderer:
@@ -12416,6 +12469,22 @@ MonoBehaviour:
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &1314128429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314128423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8c6e75037e3d044945dbc5fd3b7ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritesArray:
+  - {fileID: 21300000, guid: 981d07b9638842943980b2f053475414, type: 3}
+  - {fileID: 21300000, guid: 878fb71e6d9271b45a7de20be644484b, type: 3}
+  spriteChangeTime: 0.09
 --- !u!1 &1487443102
 GameObject:
   m_ObjectHideFlags: 0

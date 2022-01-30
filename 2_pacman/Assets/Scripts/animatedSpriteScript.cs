@@ -5,7 +5,7 @@ public class animatedSpriteScript : MonoBehaviour
     private SpriteRenderer spriteRenderer; 
     private int spritesArrayIndex;
     [SerializeField] Sprite[] spritesArray;
-    private float spriteChangeTime = .15f;
+    public float spriteChangeTime = .15f;
 
     private void Awake()
     {
