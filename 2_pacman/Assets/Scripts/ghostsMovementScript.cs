@@ -29,7 +29,6 @@ public class ghostsMovementScript : MonoBehaviour
         MoveObject();
         VerifyMapBoundaries();
         //DrawRaycasts();
-        ChangeDirectionWhenAvailable();
     }
 
     private void RandomizeStartingGhostsDirection()
@@ -51,7 +50,13 @@ public class ghostsMovementScript : MonoBehaviour
             DrawRaycasts();
             SaveRaycastsThatDidntHitAnything();
             RandomizeWhichPathToGoFromPossibleOptions();
+            
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D otherCollider)
+    {
+        ChangeDirectionWhenAvailable();
     }
 
     private void ClearPreviousPossibleDirectionsList()
@@ -110,11 +115,10 @@ public class ghostsMovementScript : MonoBehaviour
     private void ChangeDirectionWhenAvailable()
     {
         ghostRaycast = Physics2D.BoxCast(objectRigidBody.position, new Vector2(.477f, .477f), 0, nextChosenDirection, 1, obstaclesLayerMask);
-        Debug.DrawRay(objectRigidBody.position, nextChosenDirection, Color.green);
         if(ghostRaycast.collider == null) 
         {
             Debug.DrawRay(objectRigidBody.position, nextChosenDirection, Color.green); 
-            //SetObjectDirection(nextChosenDirection);
+            SetObjectDirection(nextChosenDirection);
         }
         else Debug.DrawRay(objectRigidBody.position, nextChosenDirection, Color.red);
     }
