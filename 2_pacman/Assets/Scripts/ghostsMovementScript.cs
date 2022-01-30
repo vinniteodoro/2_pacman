@@ -5,12 +5,12 @@ public class ghostsMovementScript : MonoBehaviour
 {
     private Rigidbody2D objectRigidBody;
     private float objectSpeed = 7f;
-    private Vector2 objectDirection;
+    private Vector2 objectDirection, nextChosenDirection;
     private Vector3Int tileToRaycastFrom, objectGridPosition;
     private ContactPoint2D[] colliderContactPoint = new ContactPoint2D[1];
     [SerializeField] Grid grid;
     [SerializeField] LayerMask obstaclesLayerMask;
-    private RaycastHit2D upRaycast, downRaycast, leftRaycast, rightRaycast;
+    private RaycastHit2D ghostRaycast, upIntersectionRaycast, downIntersectionRaycast, leftIntersectionRaycast, rightIntersectionRaycast;
     private Vector2 rayCastOriginPosition;
     private List<Vector2> ghostNextPossibleDirections = new List<Vector2>();
 
@@ -28,7 +28,8 @@ public class ghostsMovementScript : MonoBehaviour
     {
         MoveObject();
         VerifyMapBoundaries();
-        DrawRaycasts();
+        //DrawRaycasts();
+        ChangeDirectionWhenAvailable();
     }
 
     private void RandomizeStartingGhostsDirection()
@@ -49,8 +50,7 @@ public class ghostsMovementScript : MonoBehaviour
             GenerateRaycastsInAllDirections();
             DrawRaycasts();
             SaveRaycastsThatDidntHitAnything();
-            RandomizeWhichPathToGo();
-            WhenToChangeDirection();
+            RandomizeWhichPathToGoFromPossibleOptions();
         }
     }
 
@@ -73,48 +73,50 @@ public class ghostsMovementScript : MonoBehaviour
 
     private void GenerateRaycastsInAllDirections()
     {
-        upRaycast = Physics2D.Raycast(rayCastOriginPosition, Vector2.up, 1, obstaclesLayerMask);
-        downRaycast = Physics2D.Raycast(rayCastOriginPosition, Vector2.down, 1, obstaclesLayerMask);
-        leftRaycast = Physics2D.Raycast(rayCastOriginPosition, Vector2.left, 1, obstaclesLayerMask);
-        rightRaycast = Physics2D.Raycast(rayCastOriginPosition, Vector2.right, 1, obstaclesLayerMask);
+        upIntersectionRaycast = Physics2D.Raycast(rayCastOriginPosition, Vector2.up, 1, obstaclesLayerMask);
+        downIntersectionRaycast = Physics2D.Raycast(rayCastOriginPosition, Vector2.down, 1, obstaclesLayerMask);
+        leftIntersectionRaycast = Physics2D.Raycast(rayCastOriginPosition, Vector2.left, 1, obstaclesLayerMask);
+        rightIntersectionRaycast = Physics2D.Raycast(rayCastOriginPosition, Vector2.right, 1, obstaclesLayerMask);
     }
 
     private void DrawRaycasts()
     {
-        if(upRaycast.collider == null) Debug.DrawRay(rayCastOriginPosition, Vector2.up, Color.green);
+        if(upIntersectionRaycast.collider == null) Debug.DrawRay(rayCastOriginPosition, Vector2.up, Color.green);
         else Debug.DrawRay(rayCastOriginPosition, Vector2.up, Color.red);
         
-        if(downRaycast.collider == null) Debug.DrawRay(rayCastOriginPosition, Vector2.down, Color.green);
+        if(downIntersectionRaycast.collider == null) Debug.DrawRay(rayCastOriginPosition, Vector2.down, Color.green);
         else Debug.DrawRay(rayCastOriginPosition, Vector2.down, Color.red);
 
-        if(leftRaycast.collider == null) Debug.DrawRay(rayCastOriginPosition, Vector2.left, Color.green);
+        if(leftIntersectionRaycast.collider == null) Debug.DrawRay(rayCastOriginPosition, Vector2.left, Color.green);
         else Debug.DrawRay(rayCastOriginPosition, Vector2.left, Color.red);
 
-        if(rightRaycast.collider == null) Debug.DrawRay(rayCastOriginPosition, Vector2.right, Color.green);
+        if(rightIntersectionRaycast.collider == null) Debug.DrawRay(rayCastOriginPosition, Vector2.right, Color.green);
         else Debug.DrawRay(rayCastOriginPosition, Vector2.right, Color.red);
     }
 
     private void SaveRaycastsThatDidntHitAnything()
     {
-        if(upRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.up);
-        if(downRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.down);
-        if(leftRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.left);
-        if(rightRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.right);
+        if(upIntersectionRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.up);
+        if(downIntersectionRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.down);
+        if(leftIntersectionRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.left);
+        if(rightIntersectionRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.right);
+    }
 
-        foreach(Vector2 direction in ghostNextPossibleDirections)
+    private void RandomizeWhichPathToGoFromPossibleOptions()
+    {
+        nextChosenDirection = ghostNextPossibleDirections[Random.Range(0, ghostNextPossibleDirections.Count - 1)];
+    }
+
+    private void ChangeDirectionWhenAvailable()
+    {
+        ghostRaycast = Physics2D.BoxCast(objectRigidBody.position, new Vector2(.477f, .477f), 0, nextChosenDirection, 1, obstaclesLayerMask);
+        Debug.DrawRay(objectRigidBody.position, nextChosenDirection, Color.green);
+        if(ghostRaycast.collider == null) 
         {
-            Debug.Log(direction);
+            Debug.DrawRay(objectRigidBody.position, nextChosenDirection, Color.green); 
+            //SetObjectDirection(nextChosenDirection);
         }
-    }
-
-    private void RandomizeWhichPathToGo()
-    {
-        
-    }
-
-    private void WhenToChangeDirection()
-    {
-
+        else Debug.DrawRay(objectRigidBody.position, nextChosenDirection, Color.red);
     }
 
     private void VerifyMapBoundaries()
