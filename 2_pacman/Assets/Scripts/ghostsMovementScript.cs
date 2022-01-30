@@ -101,10 +101,10 @@ public class ghostsMovementScript : MonoBehaviour
 
     private void SaveRaycastsThatDidntHitAnything()
     {
-        if(upIntersectionRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.up);
-        if(downIntersectionRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.down);
-        if(leftIntersectionRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.left);
-        if(rightIntersectionRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.right);
+        if(upIntersectionRaycast.collider == null & objectDirection != Vector2.down) ghostNextPossibleDirections.Add(Vector2.up);
+        if(downIntersectionRaycast.collider == null & objectDirection != Vector2.up) ghostNextPossibleDirections.Add(Vector2.down);
+        if(leftIntersectionRaycast.collider == null & objectDirection != Vector2.right) ghostNextPossibleDirections.Add(Vector2.left);
+        if(rightIntersectionRaycast.collider == null & objectDirection != Vector2.left) ghostNextPossibleDirections.Add(Vector2.right);
     }
 
     private void RandomizeWhichPathToGoFromPossibleOptions()
