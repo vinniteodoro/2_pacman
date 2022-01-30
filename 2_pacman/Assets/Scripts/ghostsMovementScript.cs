@@ -114,7 +114,7 @@ public class ghostsMovementScript : MonoBehaviour
 
     private void ChangeDirectionWhenAvailable()
     {
-        ghostRaycast = Physics2D.BoxCast(objectRigidBody.position, new Vector2(.477f, .477f), 0, nextChosenDirection, 1, obstaclesLayerMask);
+        ghostRaycast = Physics2D.BoxCast(objectRigidBody.position, new Vector2(.95f, .95f), 0, nextChosenDirection, 1, obstaclesLayerMask);
         if(ghostRaycast.collider == null) 
         {
             Debug.DrawRay(objectRigidBody.position, nextChosenDirection, Color.green); 
