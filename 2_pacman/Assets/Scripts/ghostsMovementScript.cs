@@ -12,6 +12,7 @@ public class ghostsMovementScript : MonoBehaviour
     [SerializeField] LayerMask obstaclesLayerMask;
     private RaycastHit2D upRaycast, downRaycast, leftRaycast, rightRaycast;
     private Vector2 rayCastOriginPosition;
+    private List<Vector2> ghostNextPossibleDirections = new List<Vector2>();
 
     private void Awake()
     {
@@ -43,10 +44,19 @@ public class ghostsMovementScript : MonoBehaviour
     {
         if(otherCollider.gameObject.tag == "Intersection")
         {
+            ClearPreviousPossibleDirectionsList();
             PrepareTileToRaycastFrom();
             GenerateRaycastsInAllDirections();
             DrawRaycasts();
+            SaveRaycastsThatDidntHitAnything();
+            RandomizeWhichPathToGo();
+            WhenToChangeDirection();
         }
+    }
+
+    private void ClearPreviousPossibleDirectionsList()
+    {
+        ghostNextPossibleDirections.Clear();
     }
 
     private void PrepareTileToRaycastFrom()
@@ -86,7 +96,15 @@ public class ghostsMovementScript : MonoBehaviour
 
     private void SaveRaycastsThatDidntHitAnything()
     {
-        
+        if(upRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.up);
+        if(downRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.down);
+        if(leftRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.left);
+        if(rightRaycast.collider == null) ghostNextPossibleDirections.Add(Vector2.right);
+
+        foreach(Vector2 direction in ghostNextPossibleDirections)
+        {
+            Debug.Log(direction);
+        }
     }
 
     private void RandomizeWhichPathToGo()
