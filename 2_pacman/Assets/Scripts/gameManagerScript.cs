@@ -10,6 +10,7 @@ public class gameManagerScript : MonoBehaviour
    [SerializeField] GameObject winMenuObject;
    [SerializeField] coinScript coinScript;
    [SerializeField] GameObject OrangeGhost;
+   [SerializeField] GameObject intersectionsObject;
    [SerializeField] GameObject BlueGhost;
    [SerializeField] GameObject PinkGhost;
    [SerializeField] GameObject RedGhost;
@@ -26,6 +27,7 @@ public class gameManagerScript : MonoBehaviour
       playerObject.SetActive(true);
       coinsObject.SetActive(true);
       wallsObject.SetActive(true);
+      intersectionsObject.SetActive(true);
    }
 
    public void CheckWinConditions()
@@ -35,6 +37,7 @@ public class gameManagerScript : MonoBehaviour
          playerObject.SetActive(false);
          coinsObject.SetActive(false);
          wallsObject.SetActive(false);
+         intersectionsObject.SetActive(false);
          winMenuObject.SetActive(true);
          DeSpawnGhosts();
          DoNotTriggerWinConditionsAgain();
