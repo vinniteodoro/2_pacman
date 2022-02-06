@@ -3,17 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class gameManagerScript : MonoBehaviour
 {
-   [SerializeField] GameObject wallsObject;
-   [SerializeField] GameObject coinsObject;
-   [SerializeField] GameObject playerObject;
-   [SerializeField] GameObject mainMenuObject;
-   [SerializeField] GameObject winMenuObject;
-   [SerializeField] coinScript coinScript;
-   [SerializeField] GameObject OrangeGhost;
-   [SerializeField] GameObject intersectionsObject;
-   [SerializeField] GameObject BlueGhost;
-   [SerializeField] GameObject PinkGhost;
-   [SerializeField] GameObject RedGhost;
+   public GameObject wallsObject;
+   public GameObject coinsObject;
+   public GameObject playerObject;
+   public GameObject mainMenuObject;
+   public GameObject gameOverObject;
+   public GameObject winMenuObject;
+   public coinScript coinScript;
+   public GameObject OrangeGhost;
+   public GameObject intersectionsObject;
+   public GameObject BlueGhost;
+   public GameObject PinkGhost;
+   public GameObject RedGhost;
    private int ghostsQuantity;
 
    private void Update()
@@ -23,7 +24,12 @@ public class gameManagerScript : MonoBehaviour
 
    public void GameOver()
    {
-      
+      gameOverObject.SetActive(true);
+      playerObject.SetActive(false);
+      coinsObject.SetActive(false);
+      wallsObject.SetActive(false);
+      intersectionsObject.SetActive(false);
+      DeSpawnGhosts();
    }
 
    public void PlayGame()

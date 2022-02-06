@@ -3,12 +3,11 @@ using UnityEngine;
 public class ghostColliderScript : MonoBehaviour
 {
     private movementScript movementScript;
-    private gameManagerScript gMScript;
     private ghostsMovementScript ghostsMovementScript;
+    [SerializeField] GameObject gameManagerObject;
 
     private void Awake()
     {
-        gMScript = GetComponent<gameManagerScript>();
         movementScript = GetComponent<movementScript>();
         ghostsMovementScript = GetComponent<ghostsMovementScript>();
     }
@@ -17,7 +16,7 @@ public class ghostColliderScript : MonoBehaviour
     {
         if(otherCollider.gameObject.tag == "Player")
         {
-            var playerAteGhost = true;
+            var playerAteGhost = false;
             if(playerAteGhost) ResetGhost();
             else PlayerLost();
         }
@@ -30,6 +29,6 @@ public class ghostColliderScript : MonoBehaviour
 
     private void PlayerLost()
     {
-
+        gameManagerObject.GetComponent<gameManagerScript>().GameOver();
     }
 }
