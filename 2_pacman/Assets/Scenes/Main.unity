@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 350831988}
   - component: {fileID: 350831992}
   - component: {fileID: 350831993}
+  - component: {fileID: 350831994}
   m_Layer: 7
   m_Name: BlueGhost
   m_TagString: Ghost
@@ -767,6 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7ce0972ad4a2242b0758fc14a59bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectDirection: {x: 0, y: 0}
   grid: {fileID: 968805268}
   obstaclesLayerMask:
     serializedVersion: 2
@@ -787,6 +789,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 518fbb4f830817e4facb1ed18be38849, type: 3}
   - {fileID: 21300000, guid: acb060d4e6d4c6a4cb1ad4476512d5d5, type: 3}
   spriteChangeTime: 0.09
+--- !u!114 &350831994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350831987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ef4dc5e8d228848bf0dca0577d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &492721599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,6 +2075,7 @@ GameObject:
   - component: {fileID: 598210676}
   - component: {fileID: 598210680}
   - component: {fileID: 598210681}
+  - component: {fileID: 598210682}
   m_Layer: 7
   m_Name: OrangeGhost
   m_TagString: Ghost
@@ -2192,6 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7ce0972ad4a2242b0758fc14a59bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectDirection: {x: 0, y: 0}
   grid: {fileID: 968805268}
   obstaclesLayerMask:
     serializedVersion: 2
@@ -2212,6 +2228,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f6b6af01b1c0f6c4ea7ae55276ebb69f, type: 3}
   - {fileID: 21300000, guid: abaa1585425c6d047b3011fde6cdddaa, type: 3}
   spriteChangeTime: 0.09
+--- !u!114 &598210682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598210675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ef4dc5e8d228848bf0dca0577d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &616829124
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,6 +5513,7 @@ GameObject:
   - component: {fileID: 813941750}
   - component: {fileID: 813941754}
   - component: {fileID: 813941755}
+  - component: {fileID: 813941756}
   m_Layer: 7
   m_Name: RedGhost
   m_TagString: Ghost
@@ -5616,6 +5645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7ce0972ad4a2242b0758fc14a59bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectDirection: {x: 0, y: 0}
   grid: {fileID: 968805268}
   obstaclesLayerMask:
     serializedVersion: 2
@@ -5636,6 +5666,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b59d74c51ac2ad544b3072374a5c48ab, type: 3}
   - {fileID: 21300000, guid: e32427434a4c8d44ea5d1593757d542c, type: 3}
   spriteChangeTime: 0.09
+--- !u!114 &813941756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813941749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ef4dc5e8d228848bf0dca0577d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &859043726
 GameObject:
   m_ObjectHideFlags: 0
@@ -12334,6 +12376,7 @@ GameObject:
   - component: {fileID: 1314128424}
   - component: {fileID: 1314128428}
   - component: {fileID: 1314128429}
+  - component: {fileID: 1314128430}
   m_Layer: 7
   m_Name: PinkGhost
   m_TagString: Ghost
@@ -12465,6 +12508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7ce0972ad4a2242b0758fc14a59bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectDirection: {x: 0, y: 0}
   grid: {fileID: 968805268}
   obstaclesLayerMask:
     serializedVersion: 2
@@ -12485,6 +12529,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 981d07b9638842943980b2f053475414, type: 3}
   - {fileID: 21300000, guid: 878fb71e6d9271b45a7de20be644484b, type: 3}
   spriteChangeTime: 0.09
+--- !u!114 &1314128430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314128423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ef4dc5e8d228848bf0dca0577d5c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1487443102
 GameObject:
   m_ObjectHideFlags: 0

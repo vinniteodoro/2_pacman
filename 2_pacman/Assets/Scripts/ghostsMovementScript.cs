@@ -5,7 +5,8 @@ public class ghostsMovementScript : MonoBehaviour
 {
     private Rigidbody2D objectRigidBody;
     private float objectSpeed = 7f;
-    private Vector2 objectDirection, nextChosenDirection;
+    public Vector2 objectDirection;
+    private Vector2 nextChosenDirection;
     private Vector3Int tileToRaycastFrom, objectGridPosition;
     private ContactPoint2D[] colliderContactPoint = new ContactPoint2D[1];
     [SerializeField] Grid grid;
@@ -31,13 +32,18 @@ public class ghostsMovementScript : MonoBehaviour
         //DrawRaycasts();
     }
 
-    private void RandomizeStartingGhostsDirection()
+    public void RandomizeStartingGhostsDirection()
     {
+        objectDirection = new Vector3(0, 0, 0);
+        gameObject.transform.position = new Vector3(0, 2.5f, -1);
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         var initialDirectionPossibilities = new List<Vector2>();
         initialDirectionPossibilities.Add(Vector2.left);
         initialDirectionPossibilities.Add(Vector2.right);
         var randomDirection = Random.Range(0, 2);
         SetObjectDirection(initialDirectionPossibilities[randomDirection]);
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D otherCollider)
@@ -139,5 +145,6 @@ public class ghostsMovementScript : MonoBehaviour
     public void SetObjectDirection(Vector2 objectWantedDirection)
     {
         objectDirection = objectWantedDirection;
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

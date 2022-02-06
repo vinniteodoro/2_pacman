@@ -21,6 +21,11 @@ public class gameManagerScript : MonoBehaviour
       CheckWinConditions();
    }
 
+   public void GameOver()
+   {
+      
+   }
+
    public void PlayGame()
    {
       mainMenuObject.SetActive(false);
